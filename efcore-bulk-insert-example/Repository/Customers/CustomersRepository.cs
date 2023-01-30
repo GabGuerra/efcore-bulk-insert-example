@@ -14,11 +14,6 @@ namespace efcore_bulk_insert_example.Repository.Customers
 
         public async Task BulkInsertAsync(List<Customer> customers)
         {           
-            foreach (var item in customers)
-            {
-                item.Id = Guid.NewGuid();
-            }
-
             await _context.BulkInsertAsync(customers);
         }
 

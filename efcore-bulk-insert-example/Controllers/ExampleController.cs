@@ -31,7 +31,7 @@ namespace efcore_bulk_insert_example.Controllers
             .RuleFor(x => x.SSN, f => f.Random.Number(9999).ToString())
             .RuleFor(x => x.PhoneNumber, f => f.Person.Phone);
 
-            var values = faker.Generate(500000);
+            var values = faker.Generate(100000);
 
             await _customersRepository.AddRangeAsync(values);
 
@@ -53,7 +53,7 @@ namespace efcore_bulk_insert_example.Controllers
                 .RuleFor(x => x.SSN, f => f.Random.Number(9999).ToString())
                 .RuleFor(x => x.PhoneNumber, f => f.Person.Phone);
 
-            var values = faker.Generate(500000);
+            var values = faker.Generate(100000);
 
             await _customersRepository.BulkInsertAsync(values);
 

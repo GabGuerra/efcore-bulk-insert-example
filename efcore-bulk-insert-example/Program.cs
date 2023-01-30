@@ -21,11 +21,7 @@ Console.WriteLine($"Connectionstring: {defaultDBConnection}");
 builder.Services.AddDbContext<BulkExampleContext>(options =>
 {
     options
-        .UseMySql(defaultDBConnection, new MySqlServerVersion(new Version(8, 0, 26)), opt => {
-            opt.DefaultDataTypeMappings(m =>
-                m.WithClrDateTime(MySqlDateTimeType.DateTime)
-            );
-
+        .UseMySql(defaultDBConnection, new MySqlServerVersion(new Version(8, 0, 32)), opt => {   
             opt.EnableRetryOnFailure(
                 maxRetryCount: 3,
                 maxRetryDelay: TimeSpan.FromSeconds(30),
